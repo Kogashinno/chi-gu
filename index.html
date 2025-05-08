@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>チーグー</title>
+  <meta charset="UTF-8" />
+  <title>ヒカゲちゃん</title>
   <style>
     body {
       text-align: center;
       font-family: sans-serif;
+      padding-top: 50px;
     }
-    img {
+    .chigu {
       width: 200px;
-      margin-top: 30px;
-      animation: breathe 2s infinite;
+      height: auto;
+      animation: breathe 2.5s ease-in-out infinite;
     }
     @keyframes breathe {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
     }
   </style>
 </head>
 <body>
   <h1>ヒカゲちゃん</h1>
   <p>チーグー代表のヒカゲちゃんです</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/OOjs_UI_icon_userAvatar.svg/1024px-OOjs_UI_icon_userAvatar.svg.png" alt="ヒカゲちゃん">
+  <img src="hikage.png" alt="ヒカゲちゃん" class="chigu" />
 </body>
 </html>
