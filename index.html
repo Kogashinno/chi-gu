@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>ヒカゲちゃん</title>
+  <meta charset="UTF-8">
+  <title>ヒカゲちゃんの気分</title>
   <style>
     body {
       text-align: center;
       font-family: sans-serif;
-      padding-top: 50px;
+      padding: 40px;
     }
-    .chigu {
+
+    img {
       width: 200px;
-      height: auto;
       animation: breathe 2.5s ease-in-out infinite;
     }
+
     @keyframes breathe {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      width: 80%;
+      max-width: 300px;
     }
   </style>
 </head>
 <body>
   <h1>ヒカゲちゃん</h1>
-  <p>チーグー代表のヒカゲちゃんです</p>
-  <img id="hikage" class="chigu" src="" alt="ヒカゲちゃん">
-  
+  <img id="hikage" src="hikage_0.png" alt="ヒカゲちゃん" />
+  <div>
+    <input type="text" id="guchi" placeholder="グチを書いてね">
+    <button onclick="handleGuchi()">送信</button>
+  </div>
+
   <script>
-    const images = ['hikage_0.png', 'hikage_1.png', 'hikage_2.png'];
-    const randomIndex = Math.floor(Math.random() * images.length);
-    document.getElementById('hikage').src = images[randomIndex];
+    function handleGuchi() {
+      const text = document.getElementById('guchi').value.toLowerCase();
+
+      const sadWords = ['死', 'つらい', 'しんどい', '疲れた', 'いや', '泣'];
+      const happyWords = ['がんばった', 'うれしい', 'よかった', '助かった', '最高'];
+
+      let mood = 'hikage_0.png'; // 無表情
+
+      if (sadWords.some(word => text.includes(word))) {
+        mood = 'hikage_2.png'; // ショボン
+      } else if (happyWords.some(word => text.includes(word))) {
+        mood = 'hikage_1.png'; // 少し笑顔
+      }
+
+      document.getElementById('hikage').src = mood;
+    }
   </script>
 </body>
 </html>
